@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+        <meta name='format-detection' content='telephone=no' />
+        <meta name='viewport' content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi' />
+        <link rel='stylesheet' type='text/css' href='css/index.css' />
+        <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+        <title>MapGap</title>
+    </head>
+
+    <body>
+        <header>
+            <h3>GameDay Parking</h3>
+        </header>
+        <div id='map'></div>
+
+        <script type='text/javascript' src='cordova-5.0.0.js'></script>
+        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+        <script type='text/javascript' src='js/lib/zepto.js'></script>
+        <script type='text/javascript' src='js/lib/zepto-onpress.js'></script>
+        <script type='text/javascript' src='js/index.js'></script>
+        <script>
+            L.mapbox.accessToken = 'pk.eyJ1IjoidGJ5cm5lMTciLCJhIjoiYlZNbDk2dyJ9.KeuoTX5kSyx1G6ozR401gA';
+            var geocoder = L.mapbox.geocoder('mapbox.places'),
+                map = L.mapbox.map('map', 'mapbox.streets');
+
+            geocoder.query('1265 Lombardi Ave, Green Bay, WI', showMap);
+
+            function showMap(err, data) {
+                if (data.lbounds) {
+                    map.fitBounds(data.lbounds);
+                } else if(data.latlng) {
+                    map.setView([data.latlng[0],data.latlng[1]], 2);
+                }
+            }
+        </script>
+    </body>
+</html>
