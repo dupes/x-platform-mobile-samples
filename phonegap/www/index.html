@@ -1,89 +1,89 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-        <meta name='format-detection' content='telephone=no' />
-        <meta name='viewport' content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi' />
-        <link rel='stylesheet' type='text/css' href='css/index.css' />
-        <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
-        <title>MapGap</title>
-    </head>
-
-    <body>
-        <header>
-            <h3>GameDay Parking</h3>
-        </header>
-        <div id='map'></div>
-        <!DOCTYPE html>
-<html>
   <head>
-    <title>Device Properties Example</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <meta name='format-detection' content='telephone=no' />
+    <meta name='viewport' content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi' />
+    <link rel='stylesheet' type='text/css' href='css/index.css' />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+    <title>Gameday Parking</title>
+  </head>
+  
+  <body>
+    <header>
+        <h3>GameDay Parking</h3>
+    </header>
+    
+    <div id='map'></div>
+    <p id="geolocation">Finding geolocation...</p>
 
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
+      document.addEventListener("deviceready", onDeviceReady, false);
 
-    // Wait for device API libraries to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
+      function onDeviceReady() {
+          navigator.geolocation.getCurrentPosition(onSuccess, onError);
+      }
 
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    }
+      function onSuccess(position) {
 
-    // onSuccess Geolocation
-    //
-    function onSuccess(position) {
         var phonelat = position.coords.latitude
+        
         var phonelong = position.coords.longitude
 
         L.mapbox.accessToken = 'pk.eyJ1IjoidGJ5cm5lMTciLCJhIjoiYlZNbDk2dyJ9.KeuoTX5kSyx1G6ozR401gA';
+          var geojson = [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-88.0620,44.50]
+              },
+              "properties": {
+                "title": "Lambeau Field",
+                "description": "1265 Lombardi Ave, Geen Bay, WI 54304",
+                "marker-color": "#203731",
+                "marker-size": "large",
+                "marker-symbol": "america-football"
+              }
+            },
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [phonelong,phonelat]
+              },
+              "properties": {
+                "title": "Current Location",
+                "description": "This is where you are",
+                "marker-color": "#fc4353",
+                "marker-size": "large",
+                "marker-symbol": "star"
+              }
+            }
+          ];
+
           var map = L.mapbox.map('map', 'mapbox.streets')
-          .setView([phonelat, phonelong], 14);
+            .setView([phonelat,phonelong], 14);
 
-          L.mapbox.featureLayer({
-    // this feature is in the GeoJSON format: see geojson.org
-    // for the full specification
-    type: 'Feature',
-    geometry: {
-        type: 'Point',
-        // coordinates here are in longitude, latitude order because
-        // x, y is the standard for GeoJSON and many formats
-        coordinates: [
-          phonelong,
-          phonelat
-        ]
-    },
-    properties: {
-        title: 'Current Location',
-        // one can customize markers by adding simplestyle properties
-        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
-        'marker-size': 'large',
-        'marker-color': '#2ECC71',
-        'marker-symbol': 'cross'
-    }
-}).addTo(map);
-    }
+          var featureLayer = L.mapbox.featureLayer()
+              .setGeoJSON(geojson)
+              .addTo(map);
 
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
+          map.fitBounds(featureLayer.getBounds());
+      }
 
+      function onError(error) {
+          alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+      }
     </script>
-  </head>
-  <body>
-    <p id="geolocation">Finding geolocation...</p>
-  </body>
-</html>
+       
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type='text/javascript' src='cordova-5.0.0.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+    <script type='text/javascript' src='js/lib/zepto.js'></script>
+    <script type='text/javascript' src='js/lib/zepto-onpress.js'></script>
+    <script type='text/javascript' src='js/index.js'></script>
 
-        <script type='text/javascript' src='cordova-5.0.0.js'></script>
-        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
-        <script type='text/javascript' src='js/lib/zepto.js'></script>
-        <script type='text/javascript' src='js/lib/zepto-onpress.js'></script>
-        <script type='text/javascript' src='js/index.js'></script>
-    </body>
+  </body>
 </html>
