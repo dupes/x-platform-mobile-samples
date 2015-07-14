@@ -1,0 +1,7 @@
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword.UITests/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword.UITests/bin/Debug/Phoneword.UITests.dll.mdb
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword.UITests/bin/Debug/Phoneword.UITests.dll
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword.UITests/obj/Debug/Phoneword.UITests.dll
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword.UITests/obj/Debug/Phoneword.UITests.dll.mdb
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword.UITests/bin/Debug/nunit.framework.dll
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword.UITests/bin/Debug/Xamarin.UITest.dll

@@ -1,0 +1,17 @@
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/MonoAndroid,Version=v4.4.AssemblyAttribute.cs
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/bin/Debug/Phoneword.dll.mdb
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/bin/Debug/Phoneword.dll
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/bin/Debug/com.companyname.phoneword.apk
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/android/bin/com.companyname.phoneword.apk
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/res/layout/main.xml
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/res/values/strings.xml
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/res/drawable-hdpi/icon.png
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/res/drawable-mdpi/icon.png
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/res/drawable-xhdpi/icon.png
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/res/drawable-xxhdpi/icon.png
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/res/drawable-xxxhdpi/icon.png
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/R.cs.flag
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/bin/Debug/com.companyname.phoneword-Signed.apk
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/uploadflags.txt
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/Phoneword.dll
+/Users/Tommy/Nebland/x-platform-mobile-samples/Phoneword/Phoneword/obj/Debug/Phoneword.dll.mdb
