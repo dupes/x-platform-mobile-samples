@@ -5,6 +5,7 @@
     <meta name='format-detection' content='telephone=no' />
     <meta name='viewport' content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi' />
     <link rel='stylesheet' type='text/css' href='css/index.css' />
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
     <title>Gameday Parking</title>
   </head>
@@ -17,7 +18,7 @@
     <div id='map'></div>
     <p id="geolocation">Finding geolocation...</p>
 
-    <script type="text/javascript" charset="utf-8">
+<!--     <script type="text/javascript" charset="utf-8">
       document.addEventListener("deviceready", onDeviceReady, false);
 
       function onDeviceReady() {
@@ -60,27 +61,40 @@
                 "marker-symbol": "star"
               }
             }
-          ];
+           ];
 
           var map = L.mapbox.map('map', 'mapbox.streets')
-            .setView([phonelat,phonelong], 14);
+            .setView([phonelat,phonelong], 12);
 
           var featureLayer = L.mapbox.featureLayer()
-              .setGeoJSON(geojson)
+              .loadURL('192.168.1.87:3000/locations/map.json')
               .addTo(map);
 
-          map.fitBounds(featureLayer.getBounds());
+          // map.fitBounds(featureLayer.getBounds());
       }
 
       function onError(error) {
           alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
       }
+    </script> -->
+
+    <script>
+    L.mapbox.accessToken = 'pk.eyJ1IjoidGJ5cm5lMTciLCJhIjoiYlZNbDk2dyJ9.KeuoTX5kSyx1G6ozR401gA';
+      var map = L.mapbox.map('map', 'mapbox.streets')
+      .setView([44.5, -88.062], 12);
+
+      // As with any other AJAX request, this technique is subject to the Same Origin Policy:
+      // http://en.wikipedia.org/wiki/Same_origin_policy
+      // So the CSV file must be on the same domain as the Javascript, or the server
+      // delivering it should support CORS.
+      var featureLayer = L.mapbox.featureLayer()
+        .loadURL('192.168.1.87:3000/locations/map.json')
+        .addTo(map);
     </script>
        
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type='text/javascript' src='cordova-5.0.0.js'></script>
-    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
     <script type='text/javascript' src='js/lib/zepto.js'></script>
     <script type='text/javascript' src='js/lib/zepto-onpress.js'></script>
     <script type='text/javascript' src='js/index.js'></script>
